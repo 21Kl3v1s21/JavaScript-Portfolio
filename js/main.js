@@ -9,26 +9,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
   });
 
-  const homeImage = document.getElementById('home-image');
-  const overlay = document.getElementById('transition-overlay');
+  document.addEventListener('DOMContentLoaded', () => {
+    const homeImage = document.getElementById('home-image');
+    const sound = new Audio('sounds/door-opening.mp3'); // Path to your door opening sound
+    let zoomLevel = 1; // Start at normal size
+    const maxZoomLevel = 2; // Maximum zoom level before transition to the next page
   
-  // Add hover and scroll event listeners
-  homeImage.addEventListener('mouseenter', () => {
-    const scrollHandler = (e) => {
-      // Trigger the transition animation
-      overlay.style.transform = 'translateY(0)';
+    // Add scroll event listener
+    homeImage.addEventListener('wheel', (e) => {
+      e.preventDefault(); // Prevent the default scroll behavior
   
-      // Redirect to the "About Me" page after the animation completes
-      setTimeout(() => {
-        window.location.href = 'about.html'; // Replace 'about.html' with your actual page URL
-      }, 1000); // Match the duration of the CSS transition
-    };
+      if (e.deltaY > 0) { // Scroll down (zoom in)
+        zoomLevel *= 1.1; // Increase zoom by 10% each scroll
+        homeImage.style.transform = `scale(${zoomLevel})`; // Apply zoom effect to the image
+      }
   
-    // Add scroll event listener when hovering over the image
-    homeImage.addEventListener('wheel', scrollHandler, { once: true });
+      // Play the door opening sound when zoom starts
+      if (zoomLevel === 1.1) { // This is when the first zoom happens
+        sound.play(); // Play the sound
+      }
   
-    // Remove the scroll event listener when the mouse leaves the image
-    homeImage.addEventListener('mouseleave', () => {
-      homeImage.removeEventListener('wheel', scrollHandler);
+      // If the zoom level exceeds a threshold, transition to the next page
+      if (zoomLevel >= maxZoomLevel) {
+        setTimeout(() => {
+          window.location.href = 'about.html'; // Redirect to the new page when zoom reaches max level
+        }, 500); // Delay transition to allow the zoom effect to complete
+      }
     });
   });
+  
+  
+  
+  
+  

@@ -361,7 +361,8 @@ h3.my-profession {
   margin: auto;
   border-radius: 5px;
   height: 400px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center center;
+  transition: transform 0.5s ease; /* Smooth transition for zoom */
 }
 
 .home .home-img img:hover {
