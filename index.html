@@ -11,40 +11,78 @@
     <link rel="stylesheet" href="css/skins/color-1.css" />
     <link
       rel="stylesheet"
+      href="css/skins/color-1.css"
+      class="alternate-style"
+      title="color-1"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-2.css"
+      class="alternate-style"
+      title="color-2"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-3.css"
+      class="alternate-style"
+      title="color-3"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-4.css"
+      class="alternate-style"
+      title="color-4"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-5.css"
+      class="alternate-style"
+      title="color-5"
+      disabled
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <script src="main.js" defer></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style-switcher.css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/style-switcher.js" defer></script>
+    <title>My Portfolio</title>
   </head>
   <body>
-    <div class="main-contianer">
+    <div id="transition-overlay"></div>
+    <div class="main-contaianer">
       <div class="aside">
         <div class="logo">
-          <a href="#"><span>K</span>levis</a>
+          <a href="#home"><span>K</span>levis</a>
         </div>
         <div class="nav-toggler">
           <span></span>
         </div>
         <ul class="nav">
           <li>
-            <a href="#" class="active"><i class="fa fa-home"></i>Home</a>
+            <a href="#home" class="active"><i class="fa fa-home"></i>Home</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-user"></i>About</a>
+            <a href="#about"><i class="fa fa-user"></i>About</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-list"></i>Services</a>
+            <a href="#services"><i class="fa fa-list"></i>Services</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-briefcase"></i>Portfolio</a>
+            <a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a>
           </li>
           <li>
-            <a href="#"><i class="fa fa-comments"></i>Contact</a>
+            <a href="#contact"><i class="fa fa-comments"></i>Contact</a>
           </li>
         </ul>
       </div>
       <div class="main-content">
-        <section class="home section">
+        <section id="home" class="home section">
           <div class="container">
             <div class="row">
               <div class="home-info padd-15">
@@ -65,12 +103,16 @@
                 </button>
               </div>
               <div class="home-img padd-15">
-                <img src="images/Klevis.jpg" alt="A pic of me" />
+                <img
+                  id="home-image"
+                  src="images/Klevis.jpg"
+                  alt="A pic of me"
+                />
               </div>
             </div>
           </div>
         </section>
-        <section class="about section">
+        <section id="about" class="about section">
           <div class="container">
             <div class="row">
               <div class="section-title padd-15">
@@ -91,17 +133,340 @@
                   </p>
                 </div>
                 <div class="info-skills">
-                  <div class="personal-info">
-                    <h4>Info</h4>
+                  <div class="personal-info padd-15">
+                    <div class="row">
+                      <div class="info-item padd-15">
+                        <p>Age: <span>21 years Old</span></p>
+                      </div>
+                      <div class="info-item padd-15">
+                        <p>Email: <span>klevis25sfj@gmail.com</span></p>
+                      </div>
+                      <div class="info-item padd-15">
+                        <p>Phone: <span>+4799072107</span></p>
+                      </div>
+                      <div class="info-item padd-15">
+                        <p>Country: <span>Norway</span></p>
+                      </div>
+                      <div class="info-item padd-15">
+                        <p>Availability: <span>Anytime </span></p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <button class="buttons padd-15">
+                        <a href="files/Klevis_CV.pdf" class="btn">
+                          Downaload CV</a
+                        >
+                      </button>
+                    </div>
                   </div>
                   <div class="skills">
-                    <h4>Skills</h4>
+                    <h4>
+                      <div class="row">
+                        <div class="skill-item padd-15">
+                          <h5>CSS</h5>
+                          <div class="progress">
+                            <div class="progress-in" style="width: 76%"></div>
+                            <div class="skill-percent">76%</div>
+                          </div>
+                        </div>
+                        <div class="skill-item padd-15">
+                          <h5>HTML</h5>
+                          <div class="progress">
+                            <div class="progress-in" style="width: 86%"></div>
+                            <div class="skill-percent">86%</div>
+                          </div>
+                        </div>
+                        <div class="skill-item padd-15">
+                          <h5>JavaScript</h5>
+                          <div class="progress">
+                            <div class="progress-in" style="width: 46%"></div>
+                            <div class="skill-percent">46%</div>
+                          </div>
+                        </div>
+                        <div class="skill-item padd-15">
+                          <h5>Python</h5>
+                          <div class="progress">
+                            <div class="progress-in" style="width: 96%"></div>
+                            <div class="skill-percent">96%</div>
+                          </div>
+                        </div>
+                        <div class="skill-item padd-15">
+                          <h5>C#</h5>
+                          <div class="progress">
+                            <div class="progress-in" style="width: 26%"></div>
+                            <div class="skill-percent">26%</div>
+                          </div>
+                        </div>
+                        <div class="skill-item padd-15">
+                          <h5>React</h5>
+                          <div class="progress">
+                            <div class="progress-in" style="width: 86%"></div>
+                            <div class="skill-percent">86%</div>
+                          </div>
+                        </div>
+                        <div class="skill-item padd-15">
+                          <h5>Next.js</h5>
+                          <div class="progress">
+                            <div class="progress-in" style="width: 96%"></div>
+                            <div class="skill-percent">96%</div>
+                          </div>
+                        </div>
+                      </div>
+                    </h4>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <section id="services" class="service section">
+          <div class="contianer">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Services</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-mobile-alt"></i>
+                  </div>
+                  <h4>Mobile Interactive Websites</h4>
+                  <p>
+                    I develop mobile-friendly and interactive websites that
+                    ensure seamless user experiences across all devices,
+                    enhancing accessibility and engagement.
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-laptop-code"></i>
+                  </div>
+                  <h4>Web Development</h4>
+                  <p>
+                    I specialize in web development, creating robust and
+                    scalable web applications tailored to meet client
+                    requirements, ensuring functionality and performance.
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-palette"></i>
+                  </div>
+                  <h4>Web Design</h4>
+                  <p>
+                    I create visually appealing and user-friendly web designs
+                    that are tailored to meet the needs of clients and provide
+                    an excellent user experience.
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-code"></i>
+                  </div>
+                  <h4>Readable Easy Code</h4>
+                  <p>
+                    I write clean, readable, and maintainable code that adheres
+                    to best practices, ensuring ease of understanding and future
+                    scalability for developers.
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-search"></i>
+                  </div>
+                  <h4>Extensive search</h4>
+                  <p>
+                    I conduct extensive research to ensure that the solutions I
+                    provide are innovative, effective, and tailored to meet the
+                    specific needs of clients, staying ahead of industry trends.
+                  </p>
+                </div>
+              </div>
+              <div class="service-item padd-15">
+                <div class="service-item-inner">
+                  <div class="icon">
+                    <i class="fa fa-bullhorn"></i>
+                  </div>
+                  <h4>Your Optinion is Important</h4>
+                  <p>
+                    Your opinion matters to me. I value your feedback and strive
+                    to incorporate your ideas and suggestions to deliver the
+                    best possible results tailored to your needs.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="portfolio" class="portfolio section">
+          <div class="cotnainer">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Portfolio</h2>
+              </div>
+              <div class="row">
+                <div class="portfolio-heading padd-15">
+                  <h2>My Last Projects :</h2>
+                </div>
+              </div>
+              <div class="row">
+                <div class="portfolio-item padd-15">
+                  <a
+                    href="https://game-board-psi.vercel.app"
+                    target="_blank"
+                    class="portfolio-link"
+                  >
+                    <div class="portfolio-item-inner shadow-dark">
+                      <div class="portfolio-img">
+                        <img src="images/game-board.png" alt="Game Board" />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="portfolio-item padd-15">
+                  <a
+                    href="https://next-kommune.vercel.app"
+                    target="_blank"
+                    class="portfolio-link"
+                  >
+                    <div class="portfolio-item-inner shadow-dark">
+                      <div class="portfolio-img">
+                        <img
+                          src="images/company-finder.png"
+                          alt="Company Finder"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <div class="portfolio-item padd-15">
+                  <a
+                    href="https://book-tau-green.vercel.app"
+                    target="_blank"
+                    class="portfolio-link"
+                  >
+                    <div class="portfolio-item-inner shadow-dark">
+                      <div class="portfolio-img">
+                        <img src="images/item-book.png" alt="Item Book" />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="contact" class="contact section">
+          <div class="container">
+            <div class="row">
+              <div class="section-title padd-15">
+                <h2>Contact Me</h2>
+              </div>
+            </div>
+            <div class="row contact-content">
+              <!-- Left Column: Contact Info -->
+              <div class="contact-info padd-15">
+                <h3 class="contact-title">For any Questions Contact Here!</h3>
+                <h4 class="contact-sub-title">I'M AT YOUR SERVICE ANYTIME.</h4>
+                <div class="row">
+                  <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-phone"></i></div>
+                    <h4>Call Now</h4>
+                    <p>+47 99072107</p>
+                  </div>
+                  <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-map-marker-alt"></i></div>
+                    <h4>Place</h4>
+                    <p>Norway</p>
+                  </div>
+                  <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-envelope"></i></div>
+                    <h4>Email</h4>
+                    <p>klevis25sfj@gmail.com</p>
+                  </div>
+                  <div class="contact-info-item padd-15">
+                    <div class="icon"><i class="fa fa-globe-europe"></i></div>
+                    <h4>Website</h4>
+                    <p>
+                      <a
+                        href="https://21kl3v1s21.github.io/JavaScript-Portfolio/"
+                        >Click here</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Column: Map -->
+              <div class="contact-map padd-15">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509374!2d144.9537353153167!3d-37.81627974202171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf577d1b1c2b0c8e!2sMelbourne%20CBD%2C%20VIC%2C%20Australia!5e0!3m2!1sen!2sus!4v1680000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="300"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="footer">
+          <div class="container">
+            <p>&copy; 2025 Klevis Papagkikas. All Rights Reserved.</p>
+            <div class="footer-links">
+              <a
+                href="https://github.com/21kl3v1s21"
+                target="_blank"
+                class="footer-link"
+              >
+                <i class="fa fa-cat"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/klevis-papagkikas-9b1869253/"
+                target="_blank"
+                class="footer-link"
+              >
+                <i class="fa fa-link"></i>
+              </a>
+              <a
+                href="https://21kl3v1s21.github.io/JavaScript-Portfolio/"
+                target="_blank"
+                class="footer-link"
+              >
+                <i class="fa fa-globe-europe"></i>
+              </a>
+            </div>
+          </div>
+        </footer>
+        <div class="style-switcher">
+          <div class="style-switcher-toggler s-icon">
+            <i class="fas fa-cog fa-spin"></i>
+          </div>
+          <div class="day-night s-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h4>Theme Colors</h4>
+          <div class="colors">
+            <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+            <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+            <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+          </div>
+        </div>
       </div>
     </div>
   </body>
