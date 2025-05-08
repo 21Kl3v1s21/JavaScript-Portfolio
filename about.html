@@ -4,34 +4,133 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Story</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        padding: 20px;
-      }
-      .back-button {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: white;
-        background-color: #007bff;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-      }
-      .back-button:hover {
-        background-color: #0056b3;
-      }
-    </style>
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/skins/color-1.css" />
+    <link rel="icon" href="images/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-1.css"
+      class="alternate-style"
+      title="color-1"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-2.css"
+      class="alternate-style"
+      title="color-2"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-3.css"
+      class="alternate-style"
+      title="color-3"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-4.css"
+      class="alternate-style"
+      title="color-4"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="css/skins/color-5.css"
+      class="alternate-style"
+      title="color-5"
+      disabled
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style-switcher.css" />
+    <script src="js/style-switcher.js" defer></script>
+    <script src="js/about.js" defer></script>
   </head>
   <body>
-    <h1>This is my Story</h1>
-    <p>
-      Welcome to the "About Me" page! Here, you can learn more about my journey
-      as a developer.
-    </p>
-    <a href="index.html" class="back-button">Go Back</a>
+    <div class="night-bulb-container" id="nightLamp">
+      <div class="night-wire"></div>
+      <div class="night-bulb"></div>
+    </div>
+    <div class="about-section">
+      <header>
+        <h1>My Journey as a Developer</h1>
+      </header>
+
+      <div class="detective-board">
+        <svg class="thread-connections">
+          <line class="thread" id="thread1" />
+          <line class="thread" id="thread2" />
+          <line class="thread" id="thread3" />
+        </svg>
+
+        <div id="event1" class="evidence-card">
+          <div class="corner-pin right"></div>
+          <div class="card-content">
+            <h2>Beginnings</h2>
+            <p>
+              I discovered coding at age 13 and instantly fell in love with it.
+            </p>
+          </div>
+        </div>
+
+        <div id="event2" class="evidence-card locked">
+          <div class="corner-pin left"></div>
+          <div class="corner-pin right"></div>
+          <div class="card-content">
+            <h2>Learning & Growth</h2>
+            <p>
+              I explored HTML, CSS, JavaScript, and moved into frameworks. Like
+              React, Vue and Next.js
+            </p>
+          </div>
+        </div>
+
+        <div id="event3" class="evidence-card locked">
+          <div class="corner-pin left"></div>
+          <div class="corner-pin right"></div>
+          <div class="card-content">
+            <h2>First Project</h2>
+            <p>
+              My first major project was a portfolio that showcased my skills.
+              (It wasn't that good)
+            </p>
+          </div>
+        </div>
+
+        <div id="event4" class="evidence-card locked">
+          <div class="corner-pin left"></div>
+          <div class="card-content">
+            <h2>The Future</h2>
+            <p>
+              I aim to build impactful web apps and help others with my
+              creativity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="back-button-container">
+      <a href="index.html" class="back-button">Go Back</a>
+    </div>
+    <div class="style-switcher">
+      <div class="style-switcher-toggler s-icon">
+        <i class="fas fa-cog fa-spin"></i>
+      </div>
+      <div class="day-night s-icon">
+        <i class="fas fa-moon"></i>
+      </div>
+      <h4>Theme Colors</h4>
+      <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+      </div>
+    </div>
   </body>
 </html>

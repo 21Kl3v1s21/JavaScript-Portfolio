@@ -320,6 +320,7 @@ h3.my-profession {
 
 .typing {
   color: var(--skin-color);
+  transition: opacity 0.7s ease-in-out;
 }
 
 .home-info p {
@@ -484,6 +485,24 @@ h3.my-profession {
   background-color: var(--skin-color);
   width: 0;
   transition: width 0.3s ease;
+}
+
+@keyframes fillBar {
+  0%,
+  100% {
+    width: 0;
+  }
+  50% {
+    width: var(--percent);
+  }
+}
+
+.progress-in {
+  --percent: 80%; /* Default value (can be overridden) */
+  width: 0;
+  height: 100%;
+  background-color: var(--skin-color);
+  animation: fillBar 4s ease-in-out infinite;
 }
 
 .about .about-content .skills .skill-item .skill-percent {

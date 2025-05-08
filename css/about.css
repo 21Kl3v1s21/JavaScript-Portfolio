@@ -1,0 +1,394 @@
+:root {
+  --bg-black-900: #f2f2fc;
+  --bg-black-100: #fdf9ff;
+  --bg-black-50: #e8dfec;
+  --text-black-900: #302e4d;
+  --text-black-700: #504e70;
+}
+
+html {
+  scroll-behaviour: smooth;
+}
+
+body.dark {
+  --bg-black-900: #151515;
+  --bg-black-100: #222222;
+  --bg-black-50: #393939;
+  --text-black-900: #ffffff;
+  --text-black-700: #e9e9e9;
+}
+
+.night-light {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse at 50% 5%,
+    rgba(255, 245, 180, 0.95) 0%,
+    rgba(255, 210, 130, 0.5) 15%,
+    rgba(0, 0, 0, 0.3) 35%,
+    rgba(0, 0, 0, 0.8) 80%
+  );
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  pointer-events: none;
+  z-index: 5;
+  filter: blur(4px);
+}
+
+body.dark .night-light {
+  opacity: 1;
+  animation: bulbGlow 1.2s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.93;
+  }
+  48% {
+    opacity: 0.96;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  52% {
+    opacity: 0.98;
+  }
+  55% {
+    opacity: 0.9;
+  }
+}
+
+/* Light bulb animation */
+@keyframes dropLamp {
+  0% {
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  80% {
+    transform: translate(-50%, 10%);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(-50%, -5%); /* Bounce back slightly */
+  }
+  100% {
+    transform: translate(-50%, 0); /* Final position */
+  }
+}
+
+@keyframes bulbGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 80px 40px rgba(255, 230, 160, 0.55),
+      0 0 180px 90px rgba(255, 220, 150, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 100px 50px rgba(255, 240, 180, 0.7),
+      0 0 200px 100px rgba(255, 230, 160, 0.3);
+  }
+}
+
+/* Wire animation */
+@keyframes dropWire {
+  0% {
+    height: 0;
+  }
+  80% {
+    height: 130px; /* Slight overshoot */
+  }
+  100% {
+    height: 120px; /* Final wire length */
+  }
+}
+
+@keyframes swayLamp {
+  0% {
+    transform: translateX(-50%) rotate(5deg); /* Slight tilt to the right */
+  }
+  50% {
+    transform: translateX(-50%) rotate(-5deg); /* Slight tilt to the left */
+  }
+  100% {
+    transform: translateX(-50%) rotate(5deg); /* Back to the starting position */
+  }
+}
+
+.night-bulb-container.sway {
+  animation: swayLamp 3s ease-in-out infinite;
+}
+
+.night-bulb-container.drop {
+  animation: dropLamp 1s ease-out forwards;
+}
+
+.night-wire {
+  animation: dropWire 1s ease-out forwards;
+}
+
+.night-bulb {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(
+    circle at center,
+    #fffbc4 0%,
+    #ffd96b 60%,
+    #bb7e2d 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 80px 40px rgba(255, 230, 160, 0.55),
+    0 0 180px 90px rgba(255, 220, 150, 0.2);
+  position: relative;
+  animation: flicker 1.5s infinite ease-in-out;
+}
+
+.night-bulb-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  display: none;
+  align-items: center;
+  flex-direction: column;
+}
+
+body.dark .night-bulb-container {
+  display: flex;
+  animation: swayLamp 2s ease-in-out infinite;
+}
+
+/* The wire */
+.night-wire {
+  width: 4px;
+  height: 120px;
+  background: #333;
+}
+
+/* The bulb */
+.night-bulb {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(
+    circle at center,
+    #fff7cc 0%,
+    #ffdd88 60%,
+    #cc9933 100%
+  );
+  border-radius: 50%;
+  box-shadow: 0 0 60px 30px rgba(255, 230, 160, 0.35),
+    0 0 120px 60px rgba(255, 230, 160, 0.1);
+  position: relative;
+}
+
+/* Optional metal socket */
+.night-bulb::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 20px;
+  background: #444;
+  border-radius: 4px 4px 0 0;
+}
+
+body.dark .detective-board {
+  background: #2b1f14;
+  border-color: #3e2b1d;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(245, 227, 227, 0.05),
+    rgba(247, 239, 239, 0.05) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+}
+
+body.dark .board-texture {
+  opacity: 0.15;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: var(--bg-black-900);
+  color: var(--text-black-900);
+  overflow-x: hidden;
+}
+header {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.back-button {
+  display: inline-block; /* Ensures the button behaves like a block element */
+  background-color: var(--skin-color); /* Use the skin color */
+  color: white;
+  padding: 12px 24px; /* Add padding for a better look */
+  border-radius: 30px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Adjust font size */
+  font-weight: 600; /* Make the text bold */
+  margin: 20px auto; /* Add spacing and center the button */
+  text-align: center; /* Center the text inside the button */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.back-button:hover {
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.back-button-container {
+  display: flex; /* Use flexbox to center the button */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  margin-top: 20px; /* Add spacing above the button */
+}
+
+.detective-board {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  background: #e0c09f;
+  border: 15px solid #5d4037;
+  border-radius: 5px;
+  min-height: 79vh;
+}
+
+.board-texture {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(36, 5, 5, 0.05),
+    rgba(0, 0, 0, 0.05) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.evidence-card {
+  position: absolute;
+  width: 250px;
+  background: #fff8e1; /* <-- This is fine: hardcoded */
+  color: rgb(2, 2, 2); /* <-- Add this to control text color */
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.evidence-card h2 {
+  color: rgb(0, 0, 0);
+}
+
+.evidence-card p {
+  color: rgb(0, 0, 0);
+}
+
+.evidence-card.locked {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.95);
+}
+.evidence-card.show {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#event1 {
+  top: 10%;
+  left: 10%;
+}
+#event2 {
+  top: 30%;
+  left: 65%;
+}
+#event3 {
+  top: 55%;
+  left: 20%;
+}
+#event4 {
+  top: 75%;
+  left: 60%;
+}
+
+.corner-pin {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle, #fff, #333);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.corner-pin.left {
+  top: -6px;
+  left: -6px;
+}
+.corner-pin.right {
+  top: -6px;
+  right: -6px;
+}
+
+.thread-connections {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.thread {
+  stroke: var(--skin-color);
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0; /* Hide threads by default */
+  transition: stroke-dashoffset 1s ease-out, opacity 0.5s ease;
+}
+
+.thread.visible {
+  opacity: 1; /* Show thread when visible */
+  stroke-dashoffset: 0; /* Animate the thread */
+}
+
+.thread.animate {
+  stroke-dashoffset: 0;
+}
+
+/* Toggle Button Style */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--skin-color, #007bff);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: #0056b3;
+}
