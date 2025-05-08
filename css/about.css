@@ -317,7 +317,7 @@ header {
   left: 10%;
 }
 #event2 {
-  top: 30%;
+  top: 20%;
   left: 65%;
 }
 #event3 {
@@ -325,7 +325,7 @@ header {
   left: 20%;
 }
 #event4 {
-  top: 75%;
+  top: 65%;
   left: 60%;
 }
 
@@ -391,4 +391,103 @@ header {
 
 .theme-toggle:hover {
   background: #0056b3;
+}
+
+/* ==================== Mobile Responsiveness ==================== */
+@media screen and (max-width: 768px) {
+  /* Resize the board to fit smaller screens */
+  .detective-board {
+    width: 95%;
+    min-height: 70vh;
+    border-width: 8px;
+    padding: 10px;
+  }
+
+  /* Ensure cards stack and shrink on small devices */
+  .evidence-card {
+    width: 85%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .evidence-card h2 {
+    font-size: 16px;
+  }
+
+  .evidence-card p {
+    font-size: 14px;
+  }
+
+  /* Adjust card positions (optional, you may want to use grid for mobile) */
+  #event1,
+  #event2,
+  #event3,
+  #event4 {
+    position: static;
+    margin: 10px auto;
+  }
+
+  /* Layout pin fixes */
+  .corner-pin.left,
+  .corner-pin.right {
+    width: 10px;
+    height: 10px;
+  }
+
+  /* Hide threads on small screens to avoid overflow */
+  .thread-connections {
+    display: none;
+  }
+
+  /* Simplify night light effect */
+  .night-light {
+    background: rgba(0, 0, 0, 0.4);
+    filter: none;
+  }
+
+  .night-bulb-container {
+    top: 10px;
+  }
+
+  .night-wire {
+    height: 80px;
+  }
+
+  .night-bulb {
+    width: 40px;
+    height: 40px;
+  }
+
+  .night-bulb::before {
+    width: 20px;
+    height: 10px;
+  }
+
+  /* Back button styling */
+  .back-button {
+    font-size: 14px;
+    padding: 10px 16px;
+    margin-top: 10px;
+  }
+
+  .back-button-container {
+    margin-top: 10px;
+  }
+
+  /* Theme toggle button repositioned slightly */
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .detective-board {
+    width: 95%;
+    min-height: 60vh;
+    border-width: 8px;
+    padding: 10px;
+  }
 }

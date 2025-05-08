@@ -1,7 +1,7 @@
 .style-switcher {
   position: fixed;
   right: 0;
-  top: 60px;
+  top: 20px;
   padding: 15px;
   width: 250px;
   max-width: 80vw;
@@ -21,6 +21,7 @@
 .style-switcher-toggler {
   position: absolute;
   left: -45px;
+  top: 0px;
   width: 40px;
   height: 40px;
   background: var(--bg-black-100);
@@ -42,7 +43,7 @@
 .style-switcher .day-night {
   position: absolute;
   left: -45px;
-  top: 55px;
+  top: 45px;
   width: 40px;
   height: 40px;
   background: var(--bg-black-100);
@@ -75,8 +76,9 @@
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  border: 1px solid var(--bg-black-50); /* Changed from red to theme color */
+  border: 1px solid var(--bg-black-50);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .style-switcher .colors span:hover {
@@ -100,49 +102,37 @@
   background: #f021b2;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Updated Mobile and Tablet Responsive Styles */
+@media (max-width: 991px) {
+  /* Lower the position slightly (from 80px to 90px) */
   .style-switcher {
-    top: 50px;
-    width: 180px;
-    padding: 12px;
+    top: 90px; /* Increased from 80px to lower it more */
+    margin-top: -1rem;
   }
 
-  .style-switcher-toggler,
-  .day-night {
-    width: 36px;
-    height: 36px;
-    left: -40px;
+  /* Adjust toggle buttons position to match */
+  .style-switcher-toggler {
+    top: 20px; /* Position relative to the style switcher */
   }
 
   .day-night {
-    top: 50px;
-  }
-
-  .style-switcher .colors span {
-    height: 26px;
-    width: 26px;
+    top: 80px; /* Position relative to the style switcher */
+    margin-top: 1rem;
   }
 }
 
+/* Small Mobile Devices (up to 480px) - Lowered position */
 @media (max-width: 480px) {
   .style-switcher {
-    top: 40px;
-    width: 160px;
-    max-width: 75vw;
-    padding: 10px;
+    top: 75px; /* Increased from 60px */
   }
 
-  .style-switcher h4 {
-    font-size: 14px;
+  /* Adjust toggle buttons to stay aligned */
+  .style-switcher-toggler {
+    top: 15px;
   }
 
-  .style-switcher .colors {
-    gap: 6px;
-  }
-
-  .style-switcher .colors span {
-    height: 24px;
-    width: 24px;
+  .day-night {
+    top: 55px;
   }
 }
