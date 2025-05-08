@@ -15,23 +15,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Home image zoom and redirect
   const homeImage = document.getElementById('home-image');
-  if (homeImage) {
-    let zoomLevel = 1;
-    const maxZoomLevel = 1.2;
-    homeImage.addEventListener('wheel', (e) => {
-      e.preventDefault();
-      if (e.deltaY > 0 && zoomLevel < maxZoomLevel) {
-        zoomLevel *= 1.1;
-        if (zoomLevel > maxZoomLevel) zoomLevel = maxZoomLevel;
-        homeImage.style.transform = `scale(${zoomLevel})`;
-      }
-      if (zoomLevel >= maxZoomLevel) {
-        setTimeout(() => {
-          window.location.href = 'about.html';
-        }, 100);
-      }
-    });
-  }
+if (homeImage) {
+  let zoomLevel = 1;
+  const maxZoomLevel = 1.2;
+
+  // Zoom on scroll
+  homeImage.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    if (e.deltaY > 0 && zoomLevel < maxZoomLevel) {
+      zoomLevel *= 1.1;
+      if (zoomLevel > maxZoomLevel) zoomLevel = maxZoomLevel;
+      homeImage.style.transform = `scale(${zoomLevel})`;
+    }
+    if (zoomLevel >= maxZoomLevel) {
+      setTimeout(() => {
+        window.location.href = 'about.html';
+      }, 100);
+    }
+  });
+
+  // Redirect on click
+  homeImage.addEventListener('click', () => {
+    window.location.href = 'about.html';
+  });
+}
 
   // Typing effect
   const typingElement = document.querySelector('.typing');
